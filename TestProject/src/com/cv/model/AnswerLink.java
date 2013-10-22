@@ -14,6 +14,11 @@ import javax.persistence.Table;
 @Table(name = "answer_link")
 public class AnswerLink implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "ANSWER_LINK_ID")
