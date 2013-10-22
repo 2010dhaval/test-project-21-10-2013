@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+                              http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<configuration>
+		<stop-on-errors>true</stop-on-errors>
+		<date-format>MM/dd/yyyy HH:mm</date-format>
+		<wildcard>true</wildcard>
+	</configuration>
+	
+	<mapping map-id="conditionLink">
+		<class-a>com.cv.model.ConditionLink</class-a>
+		<class-b>com.cv.vo.ConditionLinkVO</class-b>
+		
+		<field>
+			<a>conditionLinkId</a>
+			<b>conditionLinkId</b>
+		</field>
+		
+		<field>
+			<a>condition</a>
+			<b>condition</b>
+		</field>
+		
+		<field>
+			<a>rank</a> 
+			<b>rank</b>
+		</field>
+		
+		<field>
+			<a>recognition</a>
+			<b>recognition</b>
+		</field>
+
+	</mapping>
+
+</mappings>
+               
