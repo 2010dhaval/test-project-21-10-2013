@@ -12,6 +12,10 @@ import javax.persistence.Table;
 @Table(name = "condition")
 public class Condition implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3205424373218344191L;
 	@Id
 	@GeneratedValue
 	@Column(name = "CONDITION_ID")

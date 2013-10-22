@@ -13,6 +13,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "condition_link")
 public class ConditionLink implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5933880963078045875L;
 	@Id
 	@GeneratedValue
 	@Column(name = "CONDITION_LINK_ID")
