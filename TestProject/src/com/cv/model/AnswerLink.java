@@ -10,25 +10,24 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="answer_link")
-public class AnswerLink implements Serializable{
-	
+@Table(name = "answer_link")
+public class AnswerLink implements Serializable {
+
 	@Id
 	@GeneratedValue
 	@Column(name = "ANSWER_LINK_ID")
 	private int answerLinkId;
-	
+
 	@Column(name = "RANK")
 	private int rank;
-	
+
 	@ManyToOne
-	@JoinColumn(name="RECOGNITION_ID", referencedColumnName = "RECOGNITION_ID")
+	@JoinColumn(name = "RECOGNITION_ID", referencedColumnName = "RECOGNITION_ID")
 	private Recognition recognition;
-	
+
 	@ManyToOne
-	@JoinColumn(name="ANSWER_ID", referencedColumnName = "ANSWER_ID")
+	@JoinColumn(name = "ANSWER_ID", referencedColumnName = "ANSWER_ID")
 	private Answer answer;
 
 	public int getAnswerLinkId() {
@@ -62,7 +61,5 @@ public class AnswerLink implements Serializable{
 	public void setAnswer(Answer answer) {
 		this.answer = answer;
 	}
-	
-	
 
 }
