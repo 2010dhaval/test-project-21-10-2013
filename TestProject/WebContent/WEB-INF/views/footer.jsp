@@ -1,0 +1,1 @@
+<p>Copyright © 2013 xyz Ltd. All rights reserved</p>
