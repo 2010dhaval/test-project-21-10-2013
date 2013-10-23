@@ -1,16 +1,16 @@
 package com.cv.controller;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cv.service.RecognitionService;
 import com.cv.vo.RecognitionVO;
+import com.google.gson.Gson;
 
 @Controller
 public class RecognitionController {
@@ -40,5 +40,17 @@ public class RecognitionController {
 		modelMap.addAttribute("recognitionVOList",
 				this.recognitionService.listRecognition());
 		return "recognitionList";
+	}
+	
+	@RequestMapping(value = "getRecognitionListForGrid.html", method = RequestMethod.GET)
+	public @ResponseBody String getRecognitionListForGrid() {
+		
+		//List<RecognitionVO> recognitionVOs = recognitionService.listRecognition();
+		
+		//Gson gson = new Gson();
+		//String json = 
+		return	new Gson().toJson(recognitionService.listRecognition());
+		
+		//return json;
 	}
 }
