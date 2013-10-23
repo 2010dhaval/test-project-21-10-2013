@@ -20,8 +20,7 @@ public class ConditionServiceImpl implements ConditionService {
 
 	@Override
 	public void addCondition(ConditionVO conditionVO) {
-		// TODO Auto-generated method stub
-		// dozer convertio
+		
 		Condition condition = DozerUtil.xmlConfig().map(conditionVO,
 				Condition.class, "condition");
 
@@ -31,8 +30,7 @@ public class ConditionServiceImpl implements ConditionService {
 
 	@Override
 	public List<ConditionVO> listCondition() {
-		// TODO Auto-generated method stub
-		// dozer convertion
+		
 		List<ConditionVO> conditionVOs = DozerHelper.map(DozerUtil.xmlConfig(),
 				this.conditionDao.listCondition(), ConditionVO.class,
 				"condition");
