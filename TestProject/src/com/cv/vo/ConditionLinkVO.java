@@ -7,27 +7,27 @@ import java.io.Serializable;
 
 public class ConditionLinkVO implements Serializable{
 
-	private int conditionLinkId;
+	private Integer conditionLinkId;
 
-	private int rank;
+	private Integer rank;
 
 	private RecognitionVO recognition;
 
 	private ConditionVO condition;
 
-	public int getConditionLinkId() {
+	public Integer getConditionLinkId() {
 		return conditionLinkId;
 	}
 
-	public void setConditionLinkId(int conditionLinkId) {
+	public void setConditionLinkId(Integer conditionLinkId) {
 		this.conditionLinkId = conditionLinkId;
 	}
 
-	public int getRank() {
+	public Integer getRank() {
 		return rank;
 	}
 
-	public void setRank(int rank) {
+	public void setRank(Integer rank) {
 		this.rank = rank;
 	}
 

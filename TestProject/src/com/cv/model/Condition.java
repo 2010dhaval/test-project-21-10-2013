@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "condition")
+@Table(name = "condition_Object")
 public class Condition implements Serializable{
 
 	/**
@@ -19,15 +19,15 @@ public class Condition implements Serializable{
 	@Id
 	@GeneratedValue
 	@Column(name = "CONDITION_ID")
-	private int conditionId;
-	@Column(name = "CONDITION")
+	private Integer conditionId;
+	@Column(name = "CONDITION_DESC")
 	private String condition;
 
-	public int getConditionId() {
+	public Integer getConditionId() {
 		return conditionId;
 	}
 
-	public void setConditionId(int conditionId) {
+	public void setConditionId(Integer conditionId) {
 		this.conditionId = conditionId;
 	}
 

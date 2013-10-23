@@ -25,6 +25,7 @@ public class ConditionServiceImpl implements ConditionService {
 				Condition.class, "condition");
 
 		this.conditionDao.addCondition(condition);
+		conditionVO.setConditionId(condition.getConditionId());
 
 	}
 

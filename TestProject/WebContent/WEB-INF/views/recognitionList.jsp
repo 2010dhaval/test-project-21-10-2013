@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	${param.msg}
+
 	<c:if test="${!empty recognitionVOList}">
 		<table align="left" border="1">
 			<tr>

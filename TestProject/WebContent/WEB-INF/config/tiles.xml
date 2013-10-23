@@ -4,22 +4,40 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-    <definition name="base.definition" template="/WEB-INF/views/mainTemplate.jsp">
-        <put-attribute name="title" value=""></put-attribute>
-        <put-attribute name="header" value="/WEB-INF/views/header.jsp"></put-attribute>
-        <put-attribute name="menu" value="/WEB-INF/views/menu.jsp"></put-attribute>
-        <put-attribute name="body" value=""></put-attribute>
-        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp"></put-attribute>
-    </definition>
- 
-    <definition name="addRecognition" extends="base.definition">
-        <put-attribute name="title" value="Employee Data Form"></put-attribute>
-        <put-attribute name="body" value="/WEB-INF/views/addRecognition.jsp"></put-attribute>
-    </definition>
-    
-    <definition name="recognitionList" extends="base.definition">
-        <put-attribute name="title" value="Employees List"></put-attribute>
-        <put-attribute name="body" value="/WEB-INF/views/recognitionList.jsp"></put-attribute>
-    </definition> 
- 
+	<definition name="base.definition" template="/WEB-INF/views/mainTemplate.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="addRecognition" extends="base.definition">
+		<put-attribute name="title" value="Employee Data Form"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/addRecognition.jsp"></put-attribute>
+	</definition>
+
+	<definition name="recognitionList" extends="base.definition">
+		<put-attribute name="title" value="Employees List"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/recognitionList.jsp"></put-attribute>
+	</definition>
+	<definition name="addCondition" extends="base.definition">
+		<put-attribute name="title" value="Condition Data Form"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/addCondition.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="conditionList" extends="base.definition">
+		<put-attribute name="title" value="Condition List"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/conditionList.jsp"></put-attribute>
+	</definition>
+	<definition name="addAnswer" extends="base.definition">
+		<put-attribute name="title" value="Answer Data Form"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/addAnswer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="answerList" extends="base.definition">
+		<put-attribute name="title" value="Answer List"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/answerList.jsp"></put-attribute>
+	</definition>
+
 </tiles-definitions>

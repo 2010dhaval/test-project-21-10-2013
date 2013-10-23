@@ -5,10 +5,10 @@
 <a href="recognitionList.html">--Recognition List</a><br/>
  
 <h3>2. Condition</h3><br/>
-<a href="employees.html">--ADD Condition</a><br/>
-<a href="employees.html">--Condition List</a><br/>
+<a href="addCondition.html">--ADD Condition</a><br/>
+<a href="conditionList.html">--Condition List</a><br/>
 
 <h3>3. Answer</h3><br/>
-<a href="employees.html">--ADD Answer</a><br/>
-<a href="employees.html">--Answer List</a><br/>
+<a href="addAnswer.html">--ADD Answer</a><br/>
+<a href="answerList.html">--Answer List</a><br/>
 
