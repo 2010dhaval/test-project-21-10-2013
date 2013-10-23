@@ -27,12 +27,13 @@ public class RecognitionController {
 
 	}
 
-	 @RequestMapping(value = "addRecognition", method = RequestMethod.POST)
-	 public String postRecognitionPage(@ModelAttribute("recognitionVO")RecognitionVO recognitionVO) {
-	 this.recognitionService.addRecognition(recognitionVO);
-	 return "redirect:recognitionList.html";
-	
-	 }
+	@RequestMapping(value = "addRecognition", method = RequestMethod.POST)
+	public String postRecognitionPage(
+			@ModelAttribute("recognitionVO") RecognitionVO recognitionVO) {
+		this.recognitionService.addRecognition(recognitionVO);
+		return "redirect:recognitionList.html?msg=Recocondition added successfully";
+
+	}
 
 	@RequestMapping(value = "recognitionList", method = RequestMethod.GET)
 	public String getRecognitionListPage(ModelMap modelMap) {

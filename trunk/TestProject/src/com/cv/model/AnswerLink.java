@@ -22,10 +22,10 @@ public class AnswerLink implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "ANSWER_LINK_ID")
-	private int answerLinkId;
+	private Integer answerLinkId;
 
 	@Column(name = "RANK")
-	private int rank;
+	private Integer rank;
 
 	@ManyToOne
 	@JoinColumn(name = "RECOGNITION_ID", referencedColumnName = "RECOGNITION_ID")
@@ -35,19 +35,19 @@ public class AnswerLink implements Serializable {
 	@JoinColumn(name = "ANSWER_ID", referencedColumnName = "ANSWER_ID")
 	private Answer answer;
 
-	public int getAnswerLinkId() {
+	public Integer getAnswerLinkId() {
 		return answerLinkId;
 	}
 
-	public void setAnswerLinkId(int answerLinkId) {
+	public void setAnswerLinkId(Integer answerLinkId) {
 		this.answerLinkId = answerLinkId;
 	}
 
-	public int getRank() {
+	public Integer getRank() {
 		return rank;
 	}
 
-	public void setRank(int rank) {
+	public void setRank(Integer rank) {
 		this.rank = rank;
 	}
 

@@ -20,16 +20,16 @@ public class Answer implements Serializable{
 	@Id
 	@GeneratedValue
 	@Column(name="ANSWER_ID")
-	private int answerId;
+	private Integer answerId;
 	
 	@Column(name = "ANSWER")
 	private String answer;
 
-	public int getAnswerId() {
+	public Integer getAnswerId() {
 		return answerId;
 	}
 
-	public void setAnswerId(int answerId) {
+	public void setAnswerId(Integer answerId) {
 		this.answerId = answerId;
 	}
 

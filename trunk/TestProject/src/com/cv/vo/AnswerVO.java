@@ -7,16 +7,16 @@ import java.io.Serializable;
 public class AnswerVO implements Serializable{
 	
 	
-	private int answerId;
+	private Integer answerId;
 	
 	
 	private String answer;
 
-	public int getAnswerId() {
+	public Integer getAnswerId() {
 		return answerId;
 	}
 
-	public void setAnswerId(int answerId) {
+	public void setAnswerId(Integer answerId) {
 		this.answerId = answerId;
 	}
 

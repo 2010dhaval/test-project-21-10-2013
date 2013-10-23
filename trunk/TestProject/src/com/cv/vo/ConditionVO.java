@@ -6,15 +6,15 @@ import java.io.Serializable;
 public class ConditionVO implements Serializable{
 
 
-	private int conditionId;
+	private Integer conditionId;
 
 	private String condition;
 
-	public int getConditionId() {
+	public Integer getConditionId() {
 		return conditionId;
 	}
 
-	public void setConditionId(int conditionId) {
+	public void setConditionId(Integer conditionId) {
 		this.conditionId = conditionId;
 	}
 

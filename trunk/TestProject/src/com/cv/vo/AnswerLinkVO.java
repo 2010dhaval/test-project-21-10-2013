@@ -7,10 +7,10 @@ import java.io.Serializable;
 public class AnswerLinkVO implements Serializable{
 	
 
-	private int answerLinkId;
+	private Integer answerLinkId;
 	
 	
-	private int rank;
+	private Integer rank;
 	
 	
 	private RecognitionVO recognition;
@@ -18,19 +18,19 @@ public class AnswerLinkVO implements Serializable{
 
 	private AnswerVO answer;
 
-	public int getAnswerLinkId() {
+	public Integer getAnswerLinkId() {
 		return answerLinkId;
 	}
 
-	public void setAnswerLinkId(int answerLinkId) {
+	public void setAnswerLinkId(Integer answerLinkId) {
 		this.answerLinkId = answerLinkId;
 	}
 
-	public int getRank() {
+	public Integer getRank() {
 		return rank;
 	}
 
-	public void setRank(int rank) {
+	public void setRank(Integer rank) {
 		this.rank = rank;
 	}
 

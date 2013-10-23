@@ -20,9 +20,9 @@ public class ConditionLink implements Serializable{
 	@Id
 	@GeneratedValue
 	@Column(name = "CONDITION_LINK_ID")
-	private int conditionLinkId;
+	private Integer conditionLinkId;
 	@Column(name = "RANK")
-	private int rank;
+	private Integer rank;
 	@ManyToOne
 	@JoinColumn(name = "RECOGNITION_ID", referencedColumnName = "RECOGNITION_ID")
 	private Recognition recognition;
@@ -30,19 +30,19 @@ public class ConditionLink implements Serializable{
 	@JoinColumn(name = "CONDITION_ID", referencedColumnName = "CONDITION_ID")
 	private Condition condition;
 
-	public int getConditionLinkId() {
+	public Integer getConditionLinkId() {
 		return conditionLinkId;
 	}
 
-	public void setConditionLinkId(int conditionLinkId) {
+	public void setConditionLinkId(Integer conditionLinkId) {
 		this.conditionLinkId = conditionLinkId;
 	}
 
-	public int getRank() {
+	public Integer getRank() {
 		return rank;
 	}
 
-	public void setRank(int rank) {
+	public void setRank(Integer rank) {
 		this.rank = rank;
 	}
 
