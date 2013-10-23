@@ -27,6 +27,7 @@ public class RecognitionServiceImpl implements RecognitionService {
 				Recognition.class, "recognition");
 
 		this.recognitionDao.addRecognition(recognition);
+		recognitionVO.setRecId(recognition.getRecId());
 	}
 
 	@Override

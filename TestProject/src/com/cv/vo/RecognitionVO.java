@@ -6,21 +6,21 @@ import java.util.Date;
 
 public class RecognitionVO implements Serializable{
 
-	private int recId;
+	private Integer recId;
 
 	private String desc;
 
 	private String question;
 
-	private Date startDate;
+	private String startDate;
 
-	private Date endDate;
+	private String endDate;
 
-	public int getRecId() {
+	public Integer getRecId() {
 		return recId;
 	}
 
-	public void setRecId(int recId) {
+	public void setRecId(Integer recId) {
 		this.recId = recId;
 	}
 
@@ -40,19 +40,19 @@ public class RecognitionVO implements Serializable{
 		this.question = question;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 

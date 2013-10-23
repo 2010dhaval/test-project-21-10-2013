@@ -21,8 +21,8 @@ public class Recognition implements Serializable{
 	@Id
 	@GeneratedValue
 	@Column(name = "RECOGNITION_ID")
-	private int recId;
-	@Column(name = "DESC")
+	private Integer recId;
+	@Column(name = "DESCRIPTION")
 	private String desc;
 	@Column(name = "QUESTION")
 	private String question;
@@ -33,11 +33,11 @@ public class Recognition implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
 
-	public int getRecId() {
+	public Integer getRecId() {
 		return recId;
 	}
 
-	public void setRecId(int recId) {
+	public void setRecId(Integer recId) {
 		this.recId = recId;
 	}
 
