@@ -1,15 +1,22 @@
 package com.cv.controller;
 
+import java.lang.reflect.Type;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cv.service.AnswerService;
 import com.cv.vo.AnswerVO;
 import com.cv.vo.ConditionVO;
+import com.cv.vo.RecognitionVO;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 @Controller
 public class AnswerController {
@@ -35,10 +42,21 @@ public class AnswerController {
 
 	@RequestMapping(value = "answerList", method = RequestMethod.GET)
 	public String getAnswerListPage(ModelMap modelMap) {
-		System.out.println("ssssss");
-		modelMap.addAttribute("answerList",
-				this.answerService.getAnswerVoList());
+		// modelMap.addAttribute("answerList",
+		// this.answerService.getAnswerVoList());
 		return "answerList";
 
+	}
+
+	@RequestMapping(value = "getAnswerListForGrid.html", method = RequestMethod.GET)
+	public @ResponseBody
+	String getAnswerListForGrid() {
+
+		List<AnswerVO> answerVOs = this.answerService.getAnswerVoList();
+		Type listType = new TypeToken<List<AnswerVO>>() {
+		}.getType();
+		Gson gson = new Gson();
+		String json = gson.toJson(answerVOs, listType);
+		return json;
 	}
 }
