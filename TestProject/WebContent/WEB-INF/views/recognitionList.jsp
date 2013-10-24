@@ -11,17 +11,7 @@
 
 <!-- Added by dhaval  start-->
 
-<script type='text/javascript'
-	src='http://code.jquery.com/jquery-1.6.2.js'></script>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css">
-<link rel="stylesheet" type="text/css"
-	href="http://trirand.com/blog/jqgrid/themes/ui.jqgrid.css">
-<script type='text/javascript'
-	src="http://trirand.com/blog/jqgrid/js/i18n/grid.locale-en.js"></script>
-<script type='text/javascript' src="js/jquery.jqGrid.min.js"></script>
+
 <script type='text/javascript'>//<![CDATA[
    $(window).load(function(){
     
@@ -34,17 +24,19 @@
         height: 'auto',
 		width: 'auto',
         pager: "#pagingDiv",
-        rowNum:20,
+        rowNum:5,
         rowList:[5,10,15,20],
+    	viewrecords: true,
+    	 sortorder: "desc",
         //rownumbers: true,
-        //sortname: 'id',
+        sortname: 'recId',
         //colNames: ['Inv No', 'Thingy', 'Blank', 'Number', 'Status'],
         colNames: ['Recognition ID', 'Description', 'Question', 'Start Date', 'End Date'],
         colModel: [{
             name: 'recId',
             index: 'recId',
             width: 100
-            //sorttype: "int"
+          //sorttype: "int"
             },
         {
             name: 'desc',
@@ -98,7 +90,6 @@
   </script>
 </head>
 <body>
-${param.msg}
 <table id="grid"></table>
 <div id="pagingDiv"></div>
 <%-- 
