@@ -9,11 +9,6 @@
 <title>Add Recognition</title>
 
 
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css" />
 <script>
 	$(function() {
 		//$.datepicker.formatDate('yy-mm-dd');
@@ -23,8 +18,58 @@
 		$("#edDate").datepicker({
 			dateFormat : 'yy-mm-dd'
 		})
-		
+
 	});
+
+	$(window).load(
+			function() {
+				$("#grid").jqGrid(
+						{
+							url : "getRecognitionListForGrid.html",
+							datatype : "json",
+							height : 'auto',
+							width : 'auto',
+							pager : "#pagingDiv",
+							rowNum : 5,
+							rowList : [ 5, 10, 15, 20 ],
+							viewrecords : true,
+							sortorder : "desc",
+
+							sortname : 'recId',
+							multiselect : 'true',
+
+							colNames : [ 'Recognition ID', 'Description',
+									'Question', 'Start Date', 'End Date' ],
+							colModel : [ {
+								name : 'recId',
+								index : 'recId',
+								width : 100
+
+							}, {
+								name : 'desc',
+								index : 'desc',
+								width : 100
+
+							}, {
+								name : 'question',
+								index : 'question',
+								width : 100
+							}, {
+								name : 'startDate',
+								index : 'startDate',
+								width : 100
+
+							}, {
+								name : 'endDate',
+								index : 'endDate',
+								width : 100
+
+							} ],
+							caption : "Condition Link List",
+
+						});
+
+			});
 </script>
 
 </head>
@@ -55,9 +100,27 @@
 				</tr>
 
 				<tr>
-					<td colspan="2"><input type="submit" value="Submit" /></td>
+
 				</tr>
 			</table>
+
+			<br />
+			<br />
+			<fieldset>
+				<legend>Answer</legend>
+				<a href="#">Add</a>
+			</fieldset>
+			<br />
+			<br />
+			<br />
+			<br />
+			<fieldset>
+				<legend>Condition</legend>
+				<a href="#">Add</a>
+			</fieldset>
+			<br />
+			<br />
+			<input type="submit" value="Submit" />
 		</form:form>
 	</fieldset>
 </body>

@@ -43,35 +43,20 @@ public class RecognitionController {
 
 	@RequestMapping(value = "recognitionList", method = RequestMethod.GET)
 	public String getRecognitionListPage(ModelMap modelMap) {
-		//modelMap.addAttribute("recognitionVOList",
-			//	this.recognitionService.listRecognition());
+		// modelMap.addAttribute("recognitionVOList",
+		// this.recognitionService.listRecognition());
 		return "recognitionList";
 	}
 
 	@RequestMapping(value = "getRecognitionListForGrid.html", method = RequestMethod.GET)
 	public @ResponseBody
-	//JqGridData<RecognitionVO>
-String	getRecognitionListForGrid() {
-
+	String getRecognitionListForGrid() {
 		List<RecognitionVO> recognitionVOs = this.recognitionService
 				.listRecognition();
-		Type listType = new TypeToken<List<RecognitionVO>>()
-                {
-                }.getType();
+		Type listType = new TypeToken<List<RecognitionVO>>() {
+		}.getType();
 		Gson gson = new Gson();
-		String json = gson.toJson(recognitionVOs,listType);
-		
-//		 int totalNumberOfPages = 1;
-//		    int currentPageNumber = 1;
-//		    int totalNumberOfRecords = 8; // All in there are 8 records in our dummy data object
-//		    JqGridData<RecognitionVO> gridData = new JqGridData<RecognitionVO>(totalNumberOfPages, currentPageNumber, totalNumberOfRecords, recognitionVOs);
-//			
-		    //Gson gson = new Gson();
-			//String json = gson.toJson(gridData);
-		    
-		    //return gridData;
-		
-		
+		String json = gson.toJson(recognitionVOs, listType);
 		return json;
 	}
 }
