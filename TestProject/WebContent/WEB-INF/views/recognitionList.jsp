@@ -12,87 +12,87 @@
 <!-- Added by dhaval  start-->
 
 
-<script type='text/javascript'>//<![CDATA[
-   $(window).load(function(){
-    
-    //var data = 
-     
-    $("#grid").jqGrid({
-    	url: "getRecognitionListForGrid.html",
-        datatype: "json",
-        //height: 250,
-        height: 'auto',
-		width: 'auto',
-        pager: "#pagingDiv",
-        rowNum:5,
-        rowList:[5,10,15,20],
-    	viewrecords: true,
-    	 sortorder: "desc",
-        //rownumbers: true,
-        sortname: 'recId',
-        //colNames: ['Inv No', 'Thingy', 'Blank', 'Number', 'Status'],
-        colNames: ['Recognition ID', 'Description', 'Question', 'Start Date', 'End Date'],
-        colModel: [{
-            name: 'recId',
-            index: 'recId',
-            width: 100
-          //sorttype: "int"
-            },
-        {
-            name: 'desc',
-            index: 'desc',
-            width: 100
-            //sorttype: "date"
-            },
-        {
-            name: 'question',
-            index: 'question',
-            width: 100},
-        {
-            name: 'startDate',
-            index: 'startDate',
-            width: 100
-            //sorttype: "float"
-            },
-        {
-            name: 'endDate',
-            index: 'endDate',
-            width: 100
-            //sorttype: "float"
-            }
-        ],
-        caption: "Recognition List",
-        // ondblClickRow: function(rowid,iRow,iCol,e){alert('double clicked');}
-    });
-     
-    /* var names = ["id", "name", "age", "salary", "address"];
-    var mydata = [];
-    //alert(data.length);
-    for (var i = 0; i < data.length; i++) {
-        mydata[i] = {};
-        //alert(data[0][0]);
-        for (var j = 0; j < data[i].length; j++) {
-        	//alert("test "+data[i][j]);
-            mydata[i][names[j]] = data[i][j];
-        }
-    } */
-    
-    //for (var i = 0; i <= mydata.length; i++) {
-        //$("#grid").jqGrid('addRowData', i + 1, mydata[i]);
-    //}
-    
-    /*
-    $("#grid").jqGrid('setGridParam', {onSelectRow: function(rowid,iRow,iCol,e){alert('row clicked');}});
-    */
-    //$("#grid").jqGrid('setGridParam', {ondblClickRow: function(rowid,iRow,iCol,e){alert('double clicked');}});
-     
-   });//]]>
-  </script>
+<script type='text/javascript'>
+	//<![CDATA[
+	$(window).load(
+			function() {
+
+				//var data = 
+
+				$("#grid").jqGrid(
+						{
+							url : "getRecognitionListForGrid.html",
+							datatype : "json",
+							//height: 250,
+							height : 'auto',
+							width : 'auto',
+							pager : "#pagingDiv",
+							rowNum : 5,
+							rowList : [ 5, 10, 15, 20 ],
+							viewrecords : true,
+							sortorder : "desc",
+							//rownumbers: true,
+							sortname : 'recId',
+							multiselect : 'true',
+							//select:'multiSelect',
+							//colNames: ['Inv No', 'Thingy', 'Blank', 'Number', 'Status'],
+							colNames : [ 'Recognition ID', 'Description',
+									'Question', 'Start Date', 'End Date' ],
+							colModel : [ {
+								name : 'recId',
+								index : 'recId',
+								width : 100
+							//sorttype: "int"
+							}, {
+								name : 'desc',
+								index : 'desc',
+								width : 100
+							//sorttype: "date"
+							}, {
+								name : 'question',
+								index : 'question',
+								width : 100
+							}, {
+								name : 'startDate',
+								index : 'startDate',
+								width : 100
+							//sorttype: "float"
+							}, {
+								name : 'endDate',
+								index : 'endDate',
+								width : 100
+							//sorttype: "float"
+							} ],
+							caption : "Recognition List",
+						// ondblClickRow: function(rowid,iRow,iCol,e){alert('double clicked');}
+						});
+
+				/* var names = ["id", "name", "age", "salary", "address"];
+				var mydata = [];
+				//alert(data.length);
+				for (var i = 0; i < data.length; i++) {
+				    mydata[i] = {};
+				    //alert(data[0][0]);
+				    for (var j = 0; j < data[i].length; j++) {
+				    	//alert("test "+data[i][j]);
+				        mydata[i][names[j]] = data[i][j];
+				    }
+				} */
+
+				//for (var i = 0; i <= mydata.length; i++) {
+				//$("#grid").jqGrid('addRowData', i + 1, mydata[i]);
+				//}
+				/*
+				$("#grid").jqGrid('setGridParam', {onSelectRow: function(rowid,iRow,iCol,e){alert('row clicked');}});
+				 */
+				//$("#grid").jqGrid('setGridParam', {ondblClickRow: function(rowid,iRow,iCol,e){alert('double clicked');}});
+			});//]]>
+</script>
 </head>
 <body>
-<table id="grid"></table>
-<div id="pagingDiv"></div>
-<%-- 
+	<table id="grid"></table>
+	<div id="pagingDiv"></div>
+	<%-- 
 	<c:if test="${!empty recognitionVOList}">
 		<table align="left" border="1">
 			<tr>
