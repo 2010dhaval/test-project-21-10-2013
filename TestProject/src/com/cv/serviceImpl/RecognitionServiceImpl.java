@@ -27,8 +27,7 @@ public class RecognitionServiceImpl implements RecognitionService {
 				Recognition.class, "recognition");
 
 		this.recognitionDao.addRecognition(recognition);
-		DozerUtil.xmlConfig().map(recognition,
-				recognitionVO, "recognition");
+		DozerUtil.xmlConfig().map(recognition, recognitionVO, "recognition");
 	}
 
 	@Override
@@ -41,6 +40,15 @@ public class RecognitionServiceImpl implements RecognitionService {
 				RecognitionVO.class, "recognition");
 
 		return recognitionVOList;
+	}
+
+	@Override
+	public RecognitionVO getRecVoByRecId(Integer recId) {
+		RecognitionVO recognitionVO = DozerUtil.xmlConfig().map(
+				this.recognitionDao.getRecVoByRecId(recId),
+				RecognitionVO.class, "recognition");
+
+		return recognitionVO;
 	}
 
 }
