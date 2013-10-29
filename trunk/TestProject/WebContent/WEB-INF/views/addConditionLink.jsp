@@ -17,10 +17,10 @@
 			<form:input path="rank" />
 			<br /> <br /> <label>Recognition id:</label>
 			<form:input readonly="true" path="recognition.recId" />
-			<br /> <br /> <br />
+			<form:hidden path="condition.conditionId" id="rec123" /> <br /> <br /> <br />
 			<table id="grid"></table>
 			<div id="pagingDiv"></div>
-			<br /> <br /> <input type="submit" value="Submit" />
+			<br /> <br /> <input type="submit" value="Submit" id="submit" />
 		</fieldset>
 	</form:form>
 	<script type='text/javascript'>
@@ -36,40 +36,49 @@
 												height : 'auto',
 												width : 300,
 												pager : "#pagingDiv",
+												multiselect : 'true',
+												beforeSelectRow : function(
+														rowid, e) {
+													jQuery("#grid").jqGrid(
+															'resetSelection');
+
+													return (true);
+												},
+												onSelectRow : function(
+														conditionId) {
+													var selRowIds = $("#grid")
+															.jqGrid(
+																	'getGridParam',
+																	'selrow');
+													var celValue = $("#grid")
+															.jqGrid('getCell',
+																	selRowIds,
+																	'conditionId');
+													document
+															.getElementById("rec123").value = celValue;
+													return (true);
+												},
+
 												rowNum : 20,
 												rowList : [ 5, 10, 15, 20 ],
-												
-												colNames : [ '',
-														'Condition ID',
+
+												colNames : [ 'Condition ID',
 														'Condition' ],
 												colModel : [
-														{
-															name : 'conditionId',
-															width : 30,
-															fixed : true,
-															align : 'center',
-															resizable : false,
-															sortable : false,
-															formatter : function(
-																	cellValue,
-																	option) {
-																return '<input  type="radio" value='+cellValue+' name="radio_' + option.gid + '"  />';
-															}
-														},
-														{
-															name : 'conditionId',
-															index : 'conditionId',
-															width : 100
-														},
-														{
-															name : 'condition',
-															index : 'condition',
-															width : 100
-														} ],
+
+												{
+													name : 'conditionId',
+													index : 'conditionId',
+													width : 100
+												}, {
+													name : 'condition',
+													index : 'condition',
+													width : 100
+												} ],
 												caption : "Condition List",
 
 											});
-
+							jQuery('#cb_grid').attr('disabled', true);
 						});
 	</script>
 </body>

@@ -27,7 +27,8 @@ public class RecognitionServiceImpl implements RecognitionService {
 				Recognition.class, "recognition");
 
 		this.recognitionDao.addRecognition(recognition);
-		recognitionVO.setRecId(recognition.getRecId());
+		DozerUtil.xmlConfig().map(recognition,
+				recognitionVO, "recognition");
 	}
 
 	@Override
