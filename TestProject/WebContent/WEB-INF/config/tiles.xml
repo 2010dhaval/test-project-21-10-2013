@@ -44,5 +44,13 @@
 		<put-attribute name="title" value="Condition Link List"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/addConditionLink.jsp"></put-attribute>
 	</definition>
+	<definition name="success" extends="base.definition">
+		<put-attribute name="title" value="Condition Link List"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/success.jsp"></put-attribute>
+	</definition>
+	<definition name="editRecognition" extends="base.definition">
+		<put-attribute name="title" value="Condition Link List"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/addRecognition.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>

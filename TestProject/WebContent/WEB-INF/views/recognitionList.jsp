@@ -33,15 +33,15 @@
 							sortorder : "desc",
 							//rownumbers: true,
 							sortname : 'recId',
-							multiselect : 'true',
-							//select:'multiSelect',
-							//colNames: ['Inv No', 'Thingy', 'Blank', 'Number', 'Status'],
+
 							colNames : [ 'Recognition ID', 'Description',
 									'Question', 'Start Date', 'End Date' ],
 							colModel : [ {
 								name : 'recId',
 								index : 'recId',
-								width : 100
+								width : 100,
+								formatter:abc,
+								//formatoptions:{baseLinkUrl:'editRecognition.html',idName:cellValue}
 							//sorttype: "int"
 							}, {
 								name : 'desc',
@@ -65,8 +65,13 @@
 							} ],
 							caption : "Recognition List",
 						// ondblClickRow: function(rowid,iRow,iCol,e){alert('double clicked');}
+							
 						});
-
+				function abc(cellvalu,s,sw){
+					return "<a href='editRecognition.html?recId="+cellvalu+"' >"+cellvalu+"</a>";
+				}
+				jQuery('#cb_grid').attr('disabled', true);
+			
 				/* var names = ["id", "name", "age", "salary", "address"];
 				var mydata = [];
 				//alert(data.length);
@@ -87,6 +92,7 @@
 				 */
 				//$("#grid").jqGrid('setGridParam', {ondblClickRow: function(rowid,iRow,iCol,e){alert('double clicked');}});
 			});//]]>
+	
 </script>
 </head>
 <body>

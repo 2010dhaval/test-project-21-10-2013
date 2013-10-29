@@ -55,10 +55,8 @@
 			<br />
 			<fieldset>
 				<legend>Condition</legend>
-				<a
-					onclick="window.open('addConditionLink.html?recId=${recognitionVO.recId}',
-				 'Continue_to_Application','width=700,height=700')"
-					href="#"> Add</a>
+				<a onclick=" openWin()" href="#"> Add</a> <a onclick="reloadGrof()"
+					href="#">Reload</a>
 
 				<table id="grid"></table>
 				<div id="pagingDiv"></div>
@@ -69,9 +67,22 @@
 		</form:form>
 	</fieldset>
 
+	<script type="text/javascript">
+	var recId = document.getElementById("recId123").value;
+		function openWin() {
+			var myWindow = window.open(
+					'addConditionLink.html?recId=${recognitionVO.recId}',
+					'Continue_to_Application', 'width=700,height=700');
+			//myWindow.focus();
+			//alert('jiaa');
+			//myWindow.opener.document.getElementById("grid").reload;;
+		}
+		function reloadGrof() {
+		//	alert('xxxx');
+			$("#grid").jqGrid('setGridParam', { url: 'getConditionLinkListForGrid.html?recId='+ recId}).trigger("reloadGrid");
+		}
 
-	<script>
-		var recId = document.getElementById("recId123").value;
+		
 
 		$(function() {
 			//$.datepicker.formatDate('yy-mm-dd');
@@ -100,7 +111,7 @@
 								viewrecords : true,
 								sortorder : "desc",
 								sortname : 'recId',
-								multiselect : 'true',
+								//multiselect : 'true',
 
 								colNames : [ 'Condition Link ID', 'rank',
 										'Rec Id', 'Con Id', 'Condition' ],

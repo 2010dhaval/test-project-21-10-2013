@@ -39,6 +39,23 @@ public class RecognitionController {
 
 	}
 
+	@RequestMapping(value = "editRecognition", method = RequestMethod.GET)
+	public String getEditRecognitionPage(@RequestParam("recId") Integer recId,
+			ModelMap modelMap) {
+		RecognitionVO recognitionVO = new RecognitionVO();
+		recognitionVO.setRecId(recId);
+		this.recognitionService.addRecognition(recognitionVO);
+		modelMap.addAttribute("recognitionVO", recognitionVO);
+		return "addRecognition";
+
+	}
+	@RequestMapping(value = "editRecognition", method = RequestMethod.POST)
+	public String postEditRecognitionPage(
+			@ModelAttribute("recognitionVO") RecognitionVO recognitionVO) {
+		this.recognitionService.addRecognition(recognitionVO);
+		return "redirect:recognitionList.html?msg=Recocondition added successfully";
+
+	}
 	@RequestMapping(value = "addRecognition", method = RequestMethod.POST)
 	public String postRecognitionPage(
 			@ModelAttribute("recognitionVO") RecognitionVO recognitionVO) {
@@ -90,4 +107,11 @@ public class RecognitionController {
 		return "addConditionLink";
 	}
 
+	@RequestMapping(value = "addConditionLink", method = RequestMethod.POST)
+	public String postAddConditionLinkVO(
+			@ModelAttribute("conditionLinkVO") ConditionLinkVO conditionLinkVO,ModelMap modelMap) {
+		this.conditionLinkService.addConditionLink(conditionLinkVO);
+		modelMap.addAttribute("recId", conditionLinkVO.getRecognition().getRecId());
+		return "success";
+	}
 }
