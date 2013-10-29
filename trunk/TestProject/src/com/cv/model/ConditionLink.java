@@ -27,7 +27,7 @@ public class ConditionLink implements Serializable{
 	@JoinColumn(name = "RECOGNITION_ID", referencedColumnName = "RECOGNITION_ID")
 	private Recognition recognition;
 	@ManyToOne
-	@JoinColumn(name = "CONDITION_ID", referencedColumnName = "CONDITION_ID")
+	@JoinColumn(name = "CONDITION_OBJECT_ID", referencedColumnName = "CONDITION_OBJECT_ID")
 	private Condition condition;
 
 	public Integer getConditionLinkId() {

@@ -25,6 +25,14 @@ public class ConditionLinkDaoImpl implements ConditionLinkDao {
 	@Override
 	@Transactional
 	public List<ConditionLink> getConditionLinkList(Integer recId) {
-		return this.hibernateTemplate.find("from ConditionLink where recognition.recId="+recId);
+		return this.hibernateTemplate
+				.find("from ConditionLink where recognition.recId=" + recId);
+	}
+
+	@Override
+	@Transactional
+	public void addConditionLink(ConditionLink conditionLink) {
+		this.hibernateTemplate.saveOrUpdate(conditionLink);
+
 	}
 }

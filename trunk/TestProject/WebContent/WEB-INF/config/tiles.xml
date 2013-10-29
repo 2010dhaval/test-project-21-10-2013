@@ -39,5 +39,10 @@
 		<put-attribute name="title" value="Answer List"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/answerList.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="addConditionLink" extends="base.definition">
+		<put-attribute name="title" value="Condition Link List"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/addConditionLink.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>

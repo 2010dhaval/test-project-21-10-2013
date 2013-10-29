@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cv.dao.ConditionLinkDao;
+import com.cv.model.ConditionLink;
 import com.cv.service.ConditionLinkService;
 import com.cv.utils.DozerHelper;
 import com.cv.utils.DozerUtil;
@@ -25,6 +26,21 @@ public class ConditionLinkServiceImpl implements ConditionLinkService {
 				ConditionLinkVO.class, "conditionLink");
 
 		return ConditionLinkVOs;
+	}
+
+	@Override
+	public void addConditionLink(ConditionLinkVO conditionLinkVO) {
+		ConditionLink conditionLink = DozerUtil.xmlConfig().map(
+				conditionLinkVO, ConditionLink.class, "conditionLink");
+		
+		this.conditionLinkDao.addConditionLink(conditionLink);
+		
+		 DozerUtil.xmlConfig().map(
+				 conditionLink, conditionLinkVO, "conditionLink");
+		 
+		//conditionLinkVO.setConditionLinkId(conditionLink.getConditionLinkId());
+		// conditionLinkVO.setRecognition(conditionLink.getRecognition());
+
 	}
 
 }

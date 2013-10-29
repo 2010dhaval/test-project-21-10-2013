@@ -18,7 +18,7 @@ public class Condition implements Serializable{
 	private static final long serialVersionUID = 3205424373218344191L;
 	@Id
 	@GeneratedValue
-	@Column(name = "CONDITION_ID")
+	@Column(name = "CONDITION_OBJECT_ID")
 	private Integer conditionId;
 	@Column(name = "CONDITION_DESC")
 	private String condition;
