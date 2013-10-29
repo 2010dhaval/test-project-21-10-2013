@@ -10,4 +10,6 @@ public interface RecognitionService {
 
 	public List<RecognitionVO> listRecognition();
 
+	public RecognitionVO getRecVoByRecId(Integer recId);
+
 }

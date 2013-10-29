@@ -2,6 +2,7 @@ package com.cv.daoImpl;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -36,6 +37,14 @@ public class RecognitionDaoImpl implements RecognitionDao {
 	public List<Recognition> listRecognition() {
 		// TODO Auto-generated method stub
 		return this.hibernateTemplate.find("from Recognition");
+	}
+
+	@Override
+	@Transactional
+	public Recognition getRecVoByRecId(Integer recId) {
+
+		return (Recognition) this.hibernateTemplate.getSessionFactory()
+				.getCurrentSession().get(Recognition.class, recId);
 	}
 
 }
