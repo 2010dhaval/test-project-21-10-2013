@@ -17,7 +17,7 @@
 		<form:form method="POST" modelAttribute="recognitionVO">
 			<table>
 				<tr>
-					<td><form:hidden path="recId" id="recId123" /></td>
+<%-- 					<td><form:input path="recId" id="recId123" /></td> --%>
 				</tr>
 				<tr>
 					<td><form:label path="desc">Description:</form:label></td>
@@ -67,8 +67,8 @@
 		</form:form>
 	</fieldset>
 
-	<script type="text/javascript">
-	var recId = document.getElementById("recId123").value;
+	<script type="text/javascript">	
+		var recId = ${recognitionVO.recId};
 		function openWin() {
 			var myWindow = window.open(
 					'addConditionLink.html?recId=${recognitionVO.recId}',
@@ -78,11 +78,11 @@
 			//myWindow.opener.document.getElementById("grid").reload;;
 		}
 		function reloadGrof() {
-		//	alert('xxxx');
-			$("#grid").jqGrid('setGridParam', { url: 'getConditionLinkListForGrid.html?recId='+ recId}).trigger("reloadGrid");
+			//	alert('xxxx');
+			$("#grid").jqGrid('setGridParam', {
+				url : 'getConditionLinkListForGrid.html?recId=' + recId
+			}).trigger("reloadGrid");
 		}
-
-		
 
 		$(function() {
 			//$.datepicker.formatDate('yy-mm-dd');
@@ -95,60 +95,70 @@
 
 		});
 
-		$(window).load(
-				function() {
+		$(window)
+				.load(
+						function() {
 
-					$("#grid").jqGrid(
-							{
-								url : "getConditionLinkListForGrid.html?recId="
-										+ recId,
-								datatype : "json",
-								height : 'auto',
-								width : 'auto',
-								pager : "#pagingDiv",
-								rowNum : 5,
-								rowList : [ 5, 10, 15, 20 ],
-								viewrecords : true,
-								sortorder : "desc",
-								sortname : 'recId',
-								//multiselect : 'true',
+							$("#grid")
+									.jqGrid(
+											{
+												url : "getConditionLinkListForGrid.html?recId="
+														+ recId,
+												datatype : "json",
+												height : 'auto',
+												width : 'auto',
+												pager : "#pagingDiv",
+												rowNum : 5,
+												rowList : [ 5, 10, 15, 20 ],
+												viewrecords : true,
+												sortorder : "desc",
+												sortname : 'recId',
+												//multiselect : 'true',
 
-								colNames : [ 'Condition Link ID', 'rank',
-										'Rec Id', 'Con Id', 'Condition' ],
-								colModel : [ {
-									name : 'conditionLinkId',
-									index : 'conditionLinkId',
-									width : 100,
-									formatter:pqr,
+												colNames : [
+														'Condition Link ID',
+														'rank', 'Rec Id',
+														'Con Id', 'Condition' ],
+												colModel : [
+														{
+															name : 'conditionLinkId',
+															index : 'conditionLinkId',
+															width : 100,
+															formatter : pqr,
 
-								}, {
-									name : 'rank',
-									index : 'rank',
-									width : 100
+														},
+														{
+															name : 'rank',
+															index : 'rank',
+															width : 100
 
-								}, {
-									name : 'recognition.recId',
-									index : 'recognition.recId',
-									width : 100
-								}, {
-									name : 'condition.conditionId',
-									index : 'condition.conditionId',
+														},
+														{
+															name : 'recognition.recId',
+															index : 'recognition.recId',
+															width : 100
+														},
+														{
+															name : 'condition.conditionId',
+															index : 'condition.conditionId',
 
-									width : 100
+															width : 100
 
-								}, {
-									name : 'condition.condition',
-									index : 'condition.condition',
-									width : 100
+														},
+														{
+															name : 'condition.condition',
+															index : 'condition.condition',
+															width : 100
 
-								} ],
-								caption : "Condition Link List",
+														} ],
+												caption : "Condition Link List",
 
-							});
-					function pqr(cellvalu,s,sw){
-						return "<a href='editConditionLink.html?conditionLinkId="+cellvalu+"' >"+cellvalu+"</a>";
-					}
-				});
+											});
+							function pqr(cellvalu, s, sw) {
+								return "<a href='editConditionLink.html?conditionLinkId="
+										+ cellvalu + "' >" + cellvalu + "</a>";
+							}
+						});
 	</script>
 
 </body>

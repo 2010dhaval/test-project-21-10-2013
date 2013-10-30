@@ -9,4 +9,6 @@ public interface ConditionLinkDao {
 	public void addConditionLink(ConditionLink conditionLink);
 
 	public List<ConditionLink> getConditionLinkList(Integer recId);
+
+	public ConditionLink getConditionLinkById(Integer conditionLinkId);
 }
