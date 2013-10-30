@@ -10,4 +10,6 @@ public interface ConditionLinkService {
 
 	public List<ConditionLinkVO> getConditionLinkList(Integer recId);
 
+	public ConditionLinkVO getConditionLinkById(Integer conditionId);
+
 }

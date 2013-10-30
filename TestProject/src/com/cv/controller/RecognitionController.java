@@ -45,7 +45,7 @@ public class RecognitionController {
 		RecognitionVO recognitionVO = this.recognitionService
 				.getRecVoByRecId(recId);
 		modelMap.addAttribute("recognitionVO", recognitionVO);
-		return "addRecognition";
+		return "editRecognition";
 
 	}
 
@@ -116,5 +116,23 @@ public class RecognitionController {
 		modelMap.addAttribute("recId", conditionLinkVO.getRecognition()
 				.getRecId());
 		return "success";
+	}
+
+	@RequestMapping(value = "editConditionLink", method = RequestMethod.GET)
+	public String getEditConditionLink(
+			@RequestParam("conditionLinkId") Integer conditionLinkId,
+			ModelMap modelMap) {
+		ConditionLinkVO conditionLinkVO = this.conditionLinkService
+				.getConditionLinkById(conditionLinkId);
+		modelMap.addAttribute("conditionLinkVO", conditionLinkVO);
+		return "editConditionLink";
+	}
+
+	@RequestMapping(value = "editConditionLink", method = RequestMethod.POST)
+	public String postEditConditionLink(
+			@ModelAttribute("conditionLinkVO") ConditionLinkVO conditionLinkVO,
+			ModelMap modelMap) {
+		this.conditionLinkService.addConditionLink(conditionLinkVO);
+		return "redirect:editRecognition.html?recId="+conditionLinkVO.getRecognition().getRecId()+"&msg=AnserLink added successfully";
 	}
 }

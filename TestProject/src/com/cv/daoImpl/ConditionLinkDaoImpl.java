@@ -35,4 +35,11 @@ public class ConditionLinkDaoImpl implements ConditionLinkDao {
 		this.hibernateTemplate.saveOrUpdate(conditionLink);
 
 	}
+
+	@Override
+	@Transactional
+	public ConditionLink getConditionLinkById(Integer conditionLinkId) {
+		return (ConditionLink)this.hibernateTemplate.getSessionFactory().getCurrentSession().get(ConditionLink.class, conditionLinkId);
+		
+	}
 }

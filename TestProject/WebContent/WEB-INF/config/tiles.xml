@@ -50,7 +50,11 @@
 	</definition>
 	<definition name="editRecognition" extends="base.definition">
 		<put-attribute name="title" value="Condition Link List"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/addRecognition.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/editRecognition.jsp"></put-attribute>
+	</definition>
+		<definition name="editConditionLink" extends="base.definition">
+		<put-attribute name="title" value="Condition Link List"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/editConditionLink.jsp"></put-attribute>
 	</definition>
 
 </tiles-definitions>
