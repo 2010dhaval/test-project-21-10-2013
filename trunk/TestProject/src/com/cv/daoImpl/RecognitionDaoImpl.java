@@ -27,7 +27,6 @@ public class RecognitionDaoImpl implements RecognitionDao {
 	@Override
 	@Transactional
 	public void addRecognition(Recognition recognition) {
-		// TODO Auto-generated method stub
 		this.hibernateTemplate.saveOrUpdate(recognition);
 
 	}
@@ -35,7 +34,6 @@ public class RecognitionDaoImpl implements RecognitionDao {
 	@Override
 	@Transactional
 	public List<Recognition> listRecognition() {
-		// TODO Auto-generated method stub
 		return this.hibernateTemplate.find("from Recognition");
 	}
 
@@ -43,6 +41,44 @@ public class RecognitionDaoImpl implements RecognitionDao {
 	@Transactional
 	public Recognition getRecVoByRecId(Integer recId) {
 
+		return (Recognition) this.hibernateTemplate.getSessionFactory()
+				.getCurrentSession().get(Recognition.class, recId);
+	}
+
+	@Override
+	@Transactional
+	public void addRecognationByDozer(Recognition recognition) {
+		this.hibernateTemplate.saveOrUpdate(recognition);
+	}
+
+	@Override
+	@Transactional
+	public List<Recognition> listRecognitionByDozer() {
+		return this.hibernateTemplate.find("from Recognition");
+	}
+
+	@Override
+	@Transactional
+	public List<Recognition> listRecognitionByManual() {
+		return this.hibernateTemplate.find("from Recognition");
+	}
+
+	@Override
+	@Transactional
+	public void addRecognationByManual(Recognition recognition) {
+		this.hibernateTemplate.saveOrUpdate(recognition);
+	}
+
+	@Override
+	@Transactional
+	public Recognition getRecVoByRecIdByManual(Integer recId) {
+		return (Recognition) this.hibernateTemplate.getSessionFactory()
+				.getCurrentSession().get(Recognition.class, recId);
+	}
+
+	@Override
+	@Transactional
+	public Recognition getRecVoByRecIdByDozer(Integer recId) {
 		return (Recognition) this.hibernateTemplate.getSessionFactory()
 				.getCurrentSession().get(Recognition.class, recId);
 	}

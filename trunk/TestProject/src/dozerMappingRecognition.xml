@@ -8,8 +8,8 @@
 		<date-format>yyyy-MM-dd</date-format>
 		<wildcard>true</wildcard>
 	</configuration>
-	
-	<mapping map-id="recognition" wildcard="true" >
+
+	<mapping map-id="recognition" wildcard="true">
 		<class-a>com.cv.model.Recognition</class-a>
 		<class-b>com.cv.vo.RecognitionVO</class-b>
 
@@ -28,7 +28,7 @@
 			<b>question</b>
 		</field>
 
-		<field >
+		<field>
 			<a>startDate</a>
 			<b>startDate</b>
 		</field>
@@ -36,6 +36,249 @@
 		<field>
 			<a>endDate</a>
 			<b>endDate</b>
+		</field>
+		<!-- // 1st five field ok -->
+		<field>
+			<a>dtreeExternalId</a>
+			<b>dtreeExternalId</b>
+
+		</field>
+		<field>
+
+
+			<a>recognitionExternalId</a>
+			<b>recognitionExternalId</b>
+		</field>
+		<field>
+
+			<a>projectId</a>
+			<b>projectId</b>
+		</field>
+		<field>
+
+			<a>recognitionCd</a>
+			<b>recognitionCd</b>
+		</field>
+		<field>
+			<a>localVersionLastImport</a>
+			<b>localVersionLastImport</b>
+		</field>
+
+
+		<!-- // 2nd 10 field -->
+		<field>
+			<a>staticTargetId</a>
+			<b>staticTargetId</b>
+		</field>
+		<field>
+			<a>matchVarNm</a>
+			<b>matchVarNm</b>
+		</field>
+		<field>
+			<a>matchTarget</a>
+			<b>matchTarget</b>
+		</field>
+		<field>
+			<a>matchTargetId</a>
+			<b>matchTargetId</b>
+		</field>
+		<field>
+			<a>staticVarNm</a>
+			<b>staticVarNm</b>
+		</field>
+		<field>
+			<a>staticVarNm</a>
+			<b>staticVarNm</b>
+		</field>
+		<field>
+			<a>staticTarget</a>
+			<b>staticTarget</b>
+		</field>
+		<field>
+			<a>recognitionGroup</a>
+			<b>recognitionGroup</b>
+		</field>
+		<field>
+			<a>recgGroupId</a>
+			<b>recgGroupId</b>
+		</field>
+		<field>
+			<a>exportGroup</a>
+			<b>exportGroup</b>
+		</field>
+
+
+		<!-- // 3rd 10 field -->
+
+
+		<field>
+			<a>exportGroupId</a>
+			<b>exportGroupId</b>
+		</field>
+		<field>
+			<a>promptExp</a>
+			<b>promptExp</b>
+		</field>
+		<field>
+			<a>description</a>
+			<b>description</b>
+		</field>
+		<field>
+			<a>freeTextDisableIn</a>
+			<b>freeTextDisableIn</b>
+		</field>
+		<field>
+			<a>notes</a>
+			<b>notes</b>
+		</field>
+		<field>
+			<a>isValid</a>
+			<b>isValid</b>
+		</field>
+		<field>
+			<a>isBlocked</a>
+			<b>isBlocked</b>
+		</field>
+		<field>
+			<a>extraData</a>
+			<b>extraData</b>
+		</field>
+		<field>
+			<a>referenceId</a>
+			<b>referenceId</b>
+		</field>
+		<field>
+			<a>isDtreeNode</a>
+			<b>isDtreeNode</b>
+		</field>
+
+		<!-- // 4th 14 field -->
+
+
+		<field>
+			<a>dtree</a>
+			<b>dtree</b>
+		</field>
+		<field>
+			<a>isErrorRecognition</a>
+			<b>isErrorRecognition</b>
+		</field>
+		<field>
+			<a>maxInvldRspnsAllwbl</a>
+			<b>maxInvldRspnsAllwbl</b>
+		</field>
+		<field>
+			<a>contentApprStateCd</a>
+			<b>contentApprStateCd</b>
+		</field>
+		<field>
+			<a>nlpApprStateCd</a>
+			<b>nlpApprStateCd</b>
+		</field>
+		<field>
+			<a>customStatus</a>
+			<b>customStatus</b>
+		</field>
+		<field>
+			<a>customStatusId</a>
+			<b>customStatusId</b>
+		</field>
+		<field>
+			<a>globalId</a>
+			<b>globalId</b>
+		</field>
+		<field>
+			<a>sourceId</a>
+			<b>sourceId</b>
+		</field>
+		<field>
+			<a>extGlobalId</a>
+			<b>extGlobalId</b>
+		</field>
+		<field>
+			<a>recognitionType</a>
+			<b>recognitionType</b>
+		</field>
+		<field>
+			<a>recognitionTypeId</a>
+			<b>recognitionTypeId</b>
+		</field>
+		<field>
+			<a>accuracyMethod</a>
+			<b>accuracyMethod</b>
+		</field>
+		<field>
+			<a>accuracyMethodId</a>
+			<b>accuracyMethodId</b>
+		</field>
+
+
+	
+<!-- 		// 5th 16 field -->
+	
+		<field>
+			<a>recognitionDataMaps</a>
+			<b>recognitionDataMaps</b>
+		</field>
+		<field>
+			<a>recgNotesAttachments</a>
+			<b>recgNotesAttachments</b>
+		</field>
+		<field>
+			<a>recognitionAlternates</a>
+			<b>recognitionAlternates</b>
+		</field>
+		<field>
+			<a>recognitionScripts</a>
+			<b>recognitionScripts</b>
+		</field>
+		<field>
+			<a>answerLinks</a>
+			<b>answerLinks</b>
+		</field>
+		<field>
+			<a>conditionLinks</a>
+			<b>conditionLinks</b>
+		</field>
+		<field>
+			<a>recognitionAttrPrompts</a>
+			<b>recognitionAttrPrompts</b>
+		</field>
+		<field>
+			<a>reExportFlag</a>
+			<b>reExportFlag</b>
+		</field>
+		<field>
+			<a>projectInternalId</a>
+			<b>projectInternalId</b>
+		</field>
+		<field>
+			<a>disambiguationPrompt</a>
+			<b>disambiguationPrompt</b>
+		</field>
+		<field>
+			<a>isPubWithContentAppr</a>
+			<b>isPubWithContentAppr</b>
+		</field>
+		<field>
+			<a>isPubWithNlpAppr</a>
+			<b>isPubWithNlpAppr</b>
+		</field>
+		<field>
+			<a>isPubWithCusStatus</a>
+			<b>isPubWithCusStatus</b>
+		</field>
+		<field>
+			<a>isPubWithCondPattReqd</a>
+			<b>isPubWithCondPattReqd</b>
+		</field>
+		<field>
+			<a>isPubWithAnsReqd</a>
+			<b>isPubWithAnsReqd</b>
+		</field>
+		<field>
+			<a>isPubWithPromptTxtToRevsd</a>
+			<b>isPubWithPromptTxtToRevsd</b>
 		</field>
 
 	</mapping>
