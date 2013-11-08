@@ -25,7 +25,7 @@
 		<put-attribute name="title" value="Condition Data Form"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/addCondition.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="conditionList" extends="base.definition">
 		<put-attribute name="title" value="Condition List"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/conditionList.jsp"></put-attribute>
@@ -34,15 +34,16 @@
 		<put-attribute name="title" value="Answer Data Form"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/addAnswer.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="answerList" extends="base.definition">
 		<put-attribute name="title" value="Answer List"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/answerList.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="addConditionLink" extends="base.definition">
 		<put-attribute name="title" value="Condition Link List"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/addConditionLink.jsp"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/addConditionLink.jsp"></put-attribute>
 	</definition>
 	<definition name="success" extends="base.definition">
 		<put-attribute name="title" value="Condition Link List"></put-attribute>
@@ -52,9 +53,36 @@
 		<put-attribute name="title" value="Condition Link List"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/editRecognition.jsp"></put-attribute>
 	</definition>
-		<definition name="editConditionLink" extends="base.definition">
+	<definition name="editConditionLink" extends="base.definition">
 		<put-attribute name="title" value="Condition Link List"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/editConditionLink.jsp"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/editConditionLink.jsp"></put-attribute>
+	</definition>
+	<definition name="addRecognationByDozer" extends="base.definition">
+		<put-attribute name="title" value="Recognation"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/addRecognationByDozer.jsp"></put-attribute>
+	</definition>
+	<definition name="recognitionListByDozer" extends="base.definition">
+		<put-attribute name="title" value="Recognation"></put-attribute>
+		<put-attribute name="body"  value="/WEB-INF/views/recognitionListByDozer.jsp"></put-attribute>
+	</definition>
+	<definition name="addRecognationByManual" extends="base.definition">
+		<put-attribute name="title" value="Recognation"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/addRecognationByManual.jsp"></put-attribute>
+	</definition>
+	<definition name="recognitionListByManual" extends="base.definition">
+		<put-attribute name="title" value="Recognation"></put-attribute>
+		<put-attribute name="body"  value="/WEB-INF/views/recognitionListByManual.jsp"></put-attribute>
+	</definition>
+		<definition name="editRecognitionByManual" extends="base.definition">
+		<put-attribute name="title" value="Recognation"></put-attribute>
+		<put-attribute name="body"  value="/WEB-INF/views/editRecognitionByManual.jsp"></put-attribute>
+	</definition>
+	<definition name="editRecognitionByDozer" extends="base.definition">
+		<put-attribute name="title" value="Recognation"></put-attribute>
+		<put-attribute name="body"  value="/WEB-INF/views/editRecognitionByDozer.jsp"></put-attribute>
 	</definition>
 
 </tiles-definitions>

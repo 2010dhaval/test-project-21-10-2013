@@ -12,3 +12,12 @@
 <a href="addAnswer.html">--ADD Answer</a><br/>
 <a href="answerList.html">--Answer List</a><br/>
 
+<h3>1. Recognition By Dozer</h3><br/>
+<a href="addRecognationByDozer.html">--ADD Recognition(Dozer)</a><br/>
+<a href="recognitionListByDozer.html">--Recognition List(Dozer)</a><br/>
+
+
+<h3>1. Recognition By Manual</h3><br/>
+<a href="addRecognationByManual.html">--ADD Recognition(Manual)</a><br/>
+<a href="recognitionListByManual.html">--Recognition List(Manual)</a><br/>
+

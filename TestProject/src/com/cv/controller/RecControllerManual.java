@@ -1,9 +1,9 @@
 package com.cv.controller;
 
 import java.lang.reflect.Type;
+import java.util.Date;
 import java.util.List;
 
-import org.codehaus.jackson.map.annotate.JacksonInject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,52 +13,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cv.model.ConditionLink;
 import com.cv.service.ConditionLinkService;
 import com.cv.service.RecognitionService;
-import com.cv.vo.ConditionLinkVO;
-import com.cv.vo.JqGridData;
 import com.cv.vo.RecognitionVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 @Controller
-public class RecognitionController {
-
+public class RecControllerManual {
 	@Autowired
 	private RecognitionService recognitionService;
 	@Autowired
 	private ConditionLinkService conditionLinkService;
 
-	@RequestMapping(value = "addRecognition", method = RequestMethod.GET)
-	public String getRecognitionPage(ModelMap modelMap) {
+	
+	
+	@RequestMapping(value = "addRecognationByManual", method = RequestMethod.GET)
+	public String addRecognationByManual(ModelMap modelMap) {
 		RecognitionVO recognitionVO = new RecognitionVO();
-		this.recognitionService.addRecognition(recognitionVO);
+		long startTimeAddRecGet=new Date().getTime();
+		this.recognitionService.addRecognationByManual(recognitionVO);
+		long endTimeAddRecGet=new Date().getTime();
+		long totalGet=endTimeAddRecGet-startTimeAddRecGet;
+		modelMap.addAttribute("totalGet", totalGet);
 		modelMap.addAttribute("recognitionVO", recognitionVO);
-		return "addRecognition";
-
+		return "addRecognationByManual";
 	}
 
-	@RequestMapping(value = "editRecognition", method = RequestMethod.GET)
-	public String getEditRecognitionPage(@RequestParam("recId") Integer recId,
-			ModelMap modelMap) {
-		RecognitionVO recognitionVO = this.recognitionService
-				.getRecVoByRecId(recId);
-		modelMap.addAttribute("recognitionVO", recognitionVO);
-		return "editRecognition";
-
-	}
-
-	@RequestMapping(value = "editRecognition", method = RequestMethod.POST)
-	public String postEditRecognitionPage(
-			@ModelAttribute("recognitionVO") RecognitionVO recognitionVO) {
-		this.recognitionService.addRecognition(recognitionVO);
-		return "redirect:recognitionList.html?msg=Recocondition added successfully";
-
-	}
-
-	@RequestMapping(value = "addRecognition", method = RequestMethod.POST)
-	public String postRecognitionPage(
+	@RequestMapping(value = "addRecognationByManual", method = RequestMethod.POST)
+	public String postRecognitionPageByManual(
 			@ModelAttribute("recognitionVO") RecognitionVO recognitionVO) {
 
 		// 1st five field ok
@@ -127,84 +110,64 @@ public class RecognitionController {
 		recognitionVO.setIsPubWithCondPattReqd('p');
 		recognitionVO.setIsPubWithAnsReqd('l');
 		recognitionVO.setIsPubWithPromptTxtToRevsd('t');
+		
+		long startTimeAddRecPost=new Date().getTime();
+		this.recognitionService.addRecognationByManual(recognitionVO);
+		long endTimeAddRecPost=new Date().getTime();
+		long totalPost=endTimeAddRecPost-startTimeAddRecPost;
 
-		this.recognitionService.addRecognition(recognitionVO);
-		return "redirect:recognitionList.html?msg=Recocondition added successfully";
+		return "redirect:recognitionListByManual.html?timeDiff="+totalPost+"&msg=Recocondition added successfully";
 
 	}
 
-	@RequestMapping(value = "recognitionList", method = RequestMethod.GET)
-	public String getRecognitionListPage(ModelMap modelMap) {
-		// modelMap.addAttribute("recognitionVOList",
+	
+	@RequestMapping(value = "editRecognitionByManual", method = RequestMethod.GET)
+	public String getEditRecognitionPageByManual(@RequestParam("recId") Integer recId,
+			ModelMap modelMap) {
+		long startTimeAddRecGet=new Date().getTime();
+		RecognitionVO recognitionVO = this.recognitionService
+				.getRecVoByRecIdByManual(recId);
+		long endTimeAddRecGet=new Date().getTime();
+		long totalGet=endTimeAddRecGet-startTimeAddRecGet;
+		modelMap.addAttribute("totalGet", totalGet);
+		modelMap.addAttribute("recognitionVO", recognitionVO);
+		return "editRecognitionByManual";
+
+	}
+
+	@RequestMapping(value = "editRecognitionByManual", method = RequestMethod.POST)
+	public String postEditRecognitionPageByManual(
+			@ModelAttribute("recognitionVO") RecognitionVO recognitionVO) {
+		long startTimeAddRecGet=new Date().getTime();
+		this.recognitionService.addRecognationByManual(recognitionVO);
+		long endTimeAddRecGet=new Date().getTime();
+		long totalGet=endTimeAddRecGet-startTimeAddRecGet;
+		return "redirect:recognitionListByManual.html?timeDiff="+totalGet+"&msg=Recocondition added successfully";
+
+	}
+	
+	
+	@RequestMapping(value = "recognitionListByManual", method = RequestMethod.GET)
+	public String getRecognitionListPageByManual(ModelMap modelMap) {
 		// this.recognitionService.listRecognition());
-		return "recognitionList";
+		return "recognitionListByManual";
 	}
 
-	@RequestMapping(value = "getRecognitionListForGrid.html", method = RequestMethod.GET)
+	@RequestMapping(value = "getRecognitionListForGridByManual.html", method = RequestMethod.GET)
 	public @ResponseBody
-	String getRecognitionListForGrid() {
+	String getRecognitionListForGridByManual() {
+		long startTime = new Date().getTime();
 		List<RecognitionVO> recognitionVOs = this.recognitionService
-				.listRecognition();
+				.listRecognitionByManual();
+		long endtime = new Date().getTime();
+		long totalDiff = endtime - startTime;
+
+		System.out.println("Time Diff off List (Manual)=" + totalDiff);
 		Type listType = new TypeToken<List<RecognitionVO>>() {
 		}.getType();
 		Gson gson = new Gson();
 		String json = gson.toJson(recognitionVOs, listType);
+
 		return json;
 	}
-
-	@RequestMapping(value = "getConditionLinkListForGrid.html", method = RequestMethod.GET)
-	public @ResponseBody
-	String getConditionLinkListForGrid(@RequestParam("recId") Integer recId) {
-		List<ConditionLinkVO> conditionLinks = this.conditionLinkService
-				.getConditionLinkList(recId);
-		Type listType = new TypeToken<List<ConditionLinkVO>>() {
-		}.getType();
-		Gson gson = new Gson();
-		String json = gson.toJson(conditionLinks, listType);
-		return json;
-	}
-
-	@RequestMapping(value = "addConditionLink", method = RequestMethod.GET)
-	public String getAddConditionLink(@RequestParam("recId") Integer recId,
-			ModelMap modelMap) {
-		ConditionLinkVO conditionLinkVO = new ConditionLinkVO();
-		RecognitionVO recognitionVO = new RecognitionVO();
-		recognitionVO.setRecId(recId);
-		conditionLinkVO.setRecognition(recognitionVO);
-		this.conditionLinkService.addConditionLink(conditionLinkVO);
-		modelMap.addAttribute("conditionLinkVO", conditionLinkVO);
-		return "addConditionLink";
-	}
-
-	@RequestMapping(value = "addConditionLink", method = RequestMethod.POST)
-	public String postAddConditionLinkVO(
-			@ModelAttribute("conditionLinkVO") ConditionLinkVO conditionLinkVO,
-			ModelMap modelMap) {
-		this.conditionLinkService.addConditionLink(conditionLinkVO);
-		modelMap.addAttribute("recId", conditionLinkVO.getRecognition()
-				.getRecId());
-		return "success";
-	}
-
-	@RequestMapping(value = "editConditionLink", method = RequestMethod.GET)
-	public String getEditConditionLink(
-			@RequestParam("conditionLinkId") Integer conditionLinkId,
-			ModelMap modelMap) {
-		ConditionLinkVO conditionLinkVO = this.conditionLinkService
-				.getConditionLinkById(conditionLinkId);
-		modelMap.addAttribute("conditionLinkVO", conditionLinkVO);
-		return "editConditionLink";
-	}
-
-	@RequestMapping(value = "editConditionLink", method = RequestMethod.POST)
-	public String postEditConditionLink(
-			@ModelAttribute("conditionLinkVO") ConditionLinkVO conditionLinkVO,
-			ModelMap modelMap) {
-		this.conditionLinkService.addConditionLink(conditionLinkVO);
-		return "redirect:editRecognition.html?recId="
-				+ conditionLinkVO.getRecognition().getRecId()
-				+ "&msg=AnserLink added successfully";
-	}
-
-
 }
