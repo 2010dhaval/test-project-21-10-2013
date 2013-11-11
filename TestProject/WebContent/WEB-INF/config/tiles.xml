@@ -16,6 +16,12 @@
 		<put-attribute name="title" value="Employee Data Form"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/addRecognition.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="login" extends="base.definition">
+		<put-attribute name="title" value="login"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp"></put-attribute>
+	</definition>
+	
 
 	<definition name="recognitionList" extends="base.definition">
 		<put-attribute name="title" value="Employees List"></put-attribute>
