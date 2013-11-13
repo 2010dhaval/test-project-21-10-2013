@@ -1,5 +1,5 @@
-<beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
@@ -9,34 +9,36 @@
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
-    
-	<global-method-security secured-annotations="enabled" />
-	
-	<http auto-config="false" use-expressions="true"
+
+	<security:global-method-security secured-annotations="enabled" />
+
+	<security:http auto-config="false" use-expressions="true"
 		access-denied-page="/accessDenied.html">
-		<form-login login-page="/login.html" default-target-url="/index.html"
+		<security:form-login login-page="/login.html" default-target-url="/index.html"
 			authentication-failure-url="/login.html?login_error=true" />
 
-		<logout invalidate-session="true" />
+		<security:logout invalidate-session="true" />
 
-		<intercept-url pattern="/login.html" access="permitAll" />
-		<intercept-url pattern="/index.html*" access="hasRole('admin')"/>
-		<intercept-url pattern="/recognitionList.html*" access="hasRole('admin')" />
-		<intercept-url pattern="/getRecognitionListForGrid.html*" access="hasRole('admin')" />
-		<intercept-url pattern="/**" access="permitAll" />
+		<security:intercept-url pattern="/login.html" access="permitAll" />
+		<security:intercept-url pattern="/index.html*" access="hasRole('admin')" />
+		<security:intercept-url pattern="/recognitionList.html*" access="hasRole('admin')" />
+		<security:intercept-url pattern="/getRecognitionListForGrid.html*"
+			access="hasRole('admin')" />
+		<security:intercept-url pattern="/**" access="permitAll" />
 
-		<session-management>
-			<concurrency-control max-sessions="1" />
-		</session-management>
-	</http>
+		<security:session-management>
+			<security:concurrency-control max-sessions="1" />
+		</security:session-management>
+	</security:http>
 
 	<context:component-scan base-package="com.cv.security" />
 	<context:annotation-config />
 
-	<authentication-manager alias="authenticationManager">
-		<authentication-provider user-service-ref="customUserDetailsService">
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider ref="CustAuthenticationProvider">
 
-		</authentication-provider>
-	</authentication-manager>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	<bean id="CustAuthenticationProvider" class="com.cv.security.CustomUserDetailsService"></bean>
 
-</beans:beans>
+</beans>

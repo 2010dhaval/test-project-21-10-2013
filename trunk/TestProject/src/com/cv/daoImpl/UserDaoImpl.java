@@ -2,7 +2,6 @@ package com.cv.daoImpl;
 
 import java.util.Date;
 import java.util.Iterator;
-
 import java.util.List;
 
 import org.hibernate.Query;
@@ -81,16 +80,30 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	@Transactional
 	public List<String> getRolesForUserId(String roleId) {
-		System.out.println("role--"+roleId);
-		   Session session = this.hibernateTemplate.getSessionFactory().getCurrentSession();        
-	        System.out.println(" getRolesForUserId ");
-	        String hql = "select roleName from Role where roleId=:ddd";
-	        Query query = session.createQuery(hql);
-	        query.setParameter("ddd", roleId);
-	        System.out.println(" query " + query.getQueryString());
-	        List<String> qry = (List<String>) query.list();
-	        System.out.println(" done ");
-	        return qry;
+		System.out.println("role--" + roleId);
+		Session session = this.hibernateTemplate.getSessionFactory()
+				.getCurrentSession();
+		System.out.println(" getRolesForUserId ");
+		String hql = "select roleName from Role where roleId=:ddd";
+		Query query = session.createQuery(hql);
+		query.setParameter("ddd", roleId);
+		System.out.println(" query " + query.getQueryString());
+		List<String> qry = (List<String>) query.list();
+		System.out.println(" done ");
+		return qry;
+	}
+
+	@Override
+	@Transactional
+	public User getUserDetails(String username, String password) {
+		Session session = this.hibernateTemplate.getSessionFactory()
+				.getCurrentSession();
+		String hql = "from User where username=:username and password=:pass";
+		org.hibernate.Query query = session.createQuery(hql);
+		query.setParameter("username", username);
+		query.setString("pass", password);
+		User u = (User) query.uniqueResult();
+		return u;
 	}
 
 }

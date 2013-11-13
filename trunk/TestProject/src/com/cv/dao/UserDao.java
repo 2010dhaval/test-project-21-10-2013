@@ -12,5 +12,7 @@ public interface UserDao {
 	public void updatePassword(User user, Password password);
 
 	public List<String> getRolesForUserId(String roleId);
+	
+	public  User getUserDetails(String username,String password);
 
 }

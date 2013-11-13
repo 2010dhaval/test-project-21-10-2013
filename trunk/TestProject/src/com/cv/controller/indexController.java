@@ -9,8 +9,8 @@ public class indexController {
 
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String getIndexPage() {
-		//return "redirect:recognitionList.html";
-		return "index";
+		return "redirect:recognitionList.html";
+		//return "index";
 	}
 
 }
