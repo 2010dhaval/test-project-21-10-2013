@@ -3,7 +3,6 @@ package com.cv.controller;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import org.codehaus.jackson.map.annotate.JacksonInject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cv.model.ConditionLink;
 import com.cv.service.ConditionLinkService;
 import com.cv.service.RecognitionService;
 import com.cv.vo.ConditionLinkVO;
-import com.cv.vo.JqGridData;
 import com.cv.vo.RecognitionVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -193,7 +190,7 @@ public class RecognitionController {
 		ConditionLinkVO conditionLinkVO = this.conditionLinkService
 				.getConditionLinkById(conditionLinkId);
 		modelMap.addAttribute("conditionLinkVO", conditionLinkVO);
-		return "editConditionLink";
+		return "addConditionLink";
 	}
 
 	@RequestMapping(value = "editConditionLink", method = RequestMethod.POST)
@@ -201,10 +198,6 @@ public class RecognitionController {
 			@ModelAttribute("conditionLinkVO") ConditionLinkVO conditionLinkVO,
 			ModelMap modelMap) {
 		this.conditionLinkService.addConditionLink(conditionLinkVO);
-		return "redirect:editRecognition.html?recId="
-				+ conditionLinkVO.getRecognition().getRecId()
-				+ "&msg=AnserLink added successfully";
+		return "redirect:editRecognition.html?recId="+conditionLinkVO.getRecognition().getRecId()+"&msg=AnserLink added successfully";
 	}
-
-
 }
