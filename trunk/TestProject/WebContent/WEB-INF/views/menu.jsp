@@ -11,6 +11,7 @@
 <h3>3. Answer</h3><br/>
 <a href="addAnswer.html">--ADD Answer</a><br/>
 <a href="answerList.html">--Answer List</a><br/>
+<a href="getEmployeeListPage.html">--Employee List</a><br/>
 
 <h3>1. Recognition By Dozer</h3><br/>
 <a href="addRecognationByDozer.html">--ADD Recognition(Dozer)</a><br/>

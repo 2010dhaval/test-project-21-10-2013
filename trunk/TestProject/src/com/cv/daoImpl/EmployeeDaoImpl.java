@@ -6,32 +6,34 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.cv.dao.AnswerDao;
-import com.cv.model.Answer;
+import com.cv.dao.EmployeeDao;
+import com.cv.model.Employee;
 
 @Repository
-public class AnswerDaoImpl implements AnswerDao {
+public class EmployeeDaoImpl implements EmployeeDao{
 
 	private HibernateTemplate hibernateTemplate;
-	@SuppressWarnings("unused")
 	private SessionFactory sessionFactory;
-
+	
 	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
-
+	
 	@Override
-	public void addOrEditAnswer(Answer answer) {
+	@Transactional
+	public List<Employee> getEmployeeList() {
+		List<Employee> list =null;
+		try{
+			list =  this.hibernateTemplate.find("from Employee");
 		
-		this.hibernateTemplate.saveOrUpdate(answer);
+		}catch(Exception ex){
+			ex.getStackTrace();
+		}
+		return list;
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Answer> getAnswerModelList() {
-		return this.hibernateTemplate.find("from Answer");
-	}
 }
